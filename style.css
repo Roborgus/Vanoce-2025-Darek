@@ -6,38 +6,99 @@
 :root {
     --rm-white: #FFFFFF;
     --rm-gold: #FEBE10;
-    --rm-dark-blue: #00529F;
-    --rm-navy: #1a1a2e;
-    --rm-black: #0a0a0f;
-    --rm-purple: #4a1c6f;
+    --rm-blue: #00529F;
+    --rm-dark-blue: #003d73;
+    --rm-navy: #0a0a1a;
+    --rm-black: #050505;
     
-    --gradient-dark: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
-    --gradient-gold: linear-gradient(135deg, #FEBE10 0%, #f5d742 50%, #FEBE10 100%);
-    --gradient-reveal: linear-gradient(180deg, #00529F 0%, #1a1a2e 100%);
+    --gradient-dark: linear-gradient(180deg, #0a0a1a 0%, #050505 100%);
+    --gradient-gold: linear-gradient(90deg, #FEBE10 0%, #FFD700 100%);
+    --gradient-blue: linear-gradient(135deg, #00529F 0%, #003d73 100%);
     
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
     
     --font-main: 'Montserrat', sans-serif;
 }
 
-/* Reset & Base */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+/* Base Adjustments */
 body {
-    font-family: var(--font-main);
-    background: var(--rm-black);
+    background-color: var(--rm-black);
+    letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Star Players Section */
+.stars-section {
+    margin: 3rem 0;
+    opacity: 0;
+    animation: slide-up 0.8s ease-out forwards;
+}
+
+#main.active .stars-section {
+    animation-delay: 0.9s;
+}
+
+.stars-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.stars-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.player-card {
+    flex: 0 0 160px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--rm-gold);
+}
+
+.player-img-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--gradient-blue);
+    border: 2px solid var(--rm-gold);
+}
+
+.player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-name {
+    font-size: 0.85rem;
+    font-weight: 700;
     color: var(--rm-white);
-    overflow-x: hidden;
-    min-height: 100vh;
+    margin-bottom: 0.25rem;
+}
+
+.player-pos {
+    font-size: 0.7rem;
+    color: var(--rm-gold);
+    text-transform: uppercase;
 }
 
 /* Phase Sections */
@@ -107,6 +168,29 @@ body {
         opacity: 0;
     }
 }
+
+/* Intro Stars */
+.intro-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.intro-star {
+    position: absolute;
+    width: 250px;
+    height: auto;
+    filter: brightness(0.4) grayscale(0.5);
+    opacity: 0.15;
+    transition: opacity 2s ease;
+}
+
+.intro-star.mbappe { bottom: -20px; right: -50px; transform: rotate(-5deg); }
+.intro-star.vinicius { bottom: -20px; left: -50px; transform: rotate(5deg); }
+.intro-star.bellingham { top: -20px; left: 50%; transform: translateX(-50%) scale(0.8); opacity: 0.1; }
 
 .intro-content {
     text-align: center;
@@ -242,12 +326,12 @@ body {
 }
 
 .rm-logo {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
     transform: scale(0);
-    filter: drop-shadow(0 0 30px rgba(254, 190, 16, 0.8));
-    animation: logo-reveal 1.5s ease-out forwards;
+    filter: drop-shadow(0 0 40px rgba(254, 190, 16, 0.9)) drop-shadow(0 0 20px rgba(0, 82, 159, 0.5));
+    animation: logo-reveal 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
     animation-play-state: paused;
 }
 
@@ -376,11 +460,16 @@ body {
 }
 
 .header-logo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 0 20px rgba(254, 190, 16, 0.5));
+    filter: drop-shadow(0 0 25px rgba(254, 190, 16, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .header-title {

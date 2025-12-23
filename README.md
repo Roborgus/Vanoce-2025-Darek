@@ -16,7 +16,7 @@ Tato stránka slouží jako vánoční překvapení. Po naskenování QR kódu s
 - **Datum:** 12. dubna 2026
 - **Stadion:** Estadio Santiago Bernabéu, Madrid
 - **Období:** 9.–13. dubna 2026
-- **Účastníci:** Theodor, Kryštof, táta + David, Lukáš, strýc
+- **Účastníci:** Theodor, Kryštof, táta + David, Lukáš, Jára
 
 ## Jak spustit
 
