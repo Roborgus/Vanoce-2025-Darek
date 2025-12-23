@@ -1,0 +1,3 @@
+{"message":"test log"}
+{"location":"manual","message":"repro trigger","timestamp":1733456789000,"sessionId":"debug-session"}
+{"message":"final check before fix"}
