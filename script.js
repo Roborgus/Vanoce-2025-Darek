@@ -9,13 +9,13 @@ const CONFIG = {
     matchDate: new Date('2026-04-12T21:00:00'),
     
     // Animation timings (ms)
-    revealDelay: 500,
-    confettiDuration: 5000,
-    phaseTransitionDelay: 4000,
+    revealDelay: 1500,        // Longer delay before reveal starts (builds anticipation)
+    confettiDuration: 6000,
+    phaseTransitionDelay: 6000, // Longer reveal phase (6 seconds to enjoy the moment)
     
     // Confetti settings
-    confettiCount: 150,
-    confettiColors: ['#FFFFFF', '#FEBE10', '#00529F', '#f5d742']
+    confettiCount: 200,       // More confetti for dramatic effect
+    confettiColors: ['#FFFFFF', '#FEBE10', '#00529F', '#f5d742', '#FFD700']
 };
 
 // DOM Elements

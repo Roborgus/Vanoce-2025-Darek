@@ -97,19 +97,21 @@ p {
 }
 
 .player-img-container {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin: 0 auto 1rem;
     border-radius: 50%;
     overflow: hidden;
-    background: var(--gradient-blue);
-    border: 2px solid var(--rm-gold);
+    background: linear-gradient(135deg, #00529F 0%, #003366 50%, #001a33 100%);
+    border: 3px solid var(--rm-gold);
+    box-shadow: 0 4px 15px rgba(254, 190, 16, 0.3);
 }
 
 .player-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 .player-name {
@@ -193,7 +195,7 @@ p {
     }
 }
 
-/* Intro Stars */
+/* Intro Stars - Silhouettes of players */
 .intro-stars {
     position: absolute;
     width: 100%;
@@ -205,16 +207,39 @@ p {
 
 .intro-star {
     position: absolute;
-    width: 250px;
+    width: 300px;
     height: auto;
-    filter: brightness(0.4) grayscale(0.5);
-    opacity: 0.15;
-    transition: opacity 2s ease;
+    filter: brightness(0.3) grayscale(0.7) contrast(1.2);
+    opacity: 0.2;
+    transition: opacity 3s ease, filter 3s ease;
 }
 
-.intro-star.mbappe { bottom: -20px; right: -50px; transform: rotate(-5deg); }
-.intro-star.vinicius { bottom: -20px; left: -50px; transform: rotate(5deg); }
-.intro-star.bellingham { top: -20px; left: 50%; transform: translateX(-50%) scale(0.8); opacity: 0.1; }
+.intro-star.mbappe { 
+    bottom: -40px; 
+    right: -30px; 
+    transform: rotate(-3deg); 
+    animation: star-float 8s ease-in-out infinite;
+}
+
+.intro-star.vinicius { 
+    bottom: -40px; 
+    left: -30px; 
+    transform: rotate(3deg); 
+    animation: star-float 8s ease-in-out infinite 2s;
+}
+
+.intro-star.bellingham { 
+    top: 0px; 
+    left: 50%; 
+    transform: translateX(-50%) scale(0.7); 
+    opacity: 0.12; 
+    animation: star-float 8s ease-in-out infinite 4s;
+}
+
+@keyframes star-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
 
 .intro-content {
     text-align: center;
@@ -262,17 +287,19 @@ p {
 }
 
 @keyframes fade-pulse {
-    0%, 100% { opacity: 0.7; }
+    0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
 }
 
-/* Reveal Button */
+/* Reveal Button - More Dramatic */
 .reveal-button {
     position: relative;
-    padding: 1.2rem 3rem;
+    padding: 1.5rem 4rem;
     font-family: var(--font-main);
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--rm-black);
     background: var(--gradient-gold);
     border: none;
@@ -280,15 +307,28 @@ p {
     cursor: pointer;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: button-breathe 2s infinite ease-in-out;
+}
+
+@keyframes button-breathe {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 30px rgba(254, 190, 16, 0.4);
+    }
+    50% { 
+        transform: scale(1.03);
+        box-shadow: 0 0 50px rgba(254, 190, 16, 0.7);
+    }
 }
 
 .reveal-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(254, 190, 16, 0.6);
+    transform: scale(1.08);
+    box-shadow: 0 0 60px rgba(254, 190, 16, 0.8);
+    animation: none;
 }
 
 .reveal-button:active {
-    transform: scale(0.98);
+    transform: scale(0.95);
 }
 
 .btn-glow {
