@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor QR kódu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #FEBE10;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #FEBE10;
+        }
+        
+        button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #FEBE10 0%, #f5d742 100%);
+            border: none;
+            border-radius: 10px;
+            color: #0a0a0f;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(254, 190, 16, 0.4);
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: none;
+        }
+        
+        .qr-container.visible {
+            display: block;
+        }
+        
+        #qrcode {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        #qrcode img {
+            display: block;
+        }
+        
+        .url-display {
+            color: #FEBE10;
+            word-break: break-all;
+            margin-bottom: 1rem;
+        }
+        
+        .download-btn {
+            margin-top: 1rem;
+            background: #00529F;
+            color: #fff;
+        }
+        
+        .instructions {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #FEBE10;
+        }
+        
+        .instructions h3 {
+            color: #FEBE10;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .instructions a {
+            color: #FEBE10;
+        }
+        
+        code {
+            background: rgba(254, 190, 16, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(254, 190, 16, 0.1);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .note strong {
+            color: #FEBE10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 QR Kód Generátor</h1>
+        
+        <div class="form-group">
+            <label for="username">Vaše GitHub uživatelské jméno:</label>
+            <input type="text" id="username" placeholder="např. rob123">
+        </div>
+        
+        <div class="form-group">
+            <label for="repo">Název repozitáře (ponechte výchozí):</label>
+            <input type="text" id="repo" value="Vanoce-2025-Darek">
+        </div>
+        
+        <button onclick="generateQR()">Vygenerovat QR kód</button>
+        
+        <div class="qr-container" id="qr-container">
+            <div id="qrcode"></div>
+            <p class="url-display" id="url-display"></p>
+            <p class="note">
+                <strong>Tip:</strong> Pro stažení QR kódu klikněte pravým tlačítkem na obrázek 
+                a vyberte "Uložit obrázek jako..." nebo použijte online generátor 
+                <a href="https://www.qr-code-generator.com/" target="_blank">qr-code-generator.com</a> 
+                s výše uvedenou URL.
+            </p>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Jak aktivovat GitHub Pages</h3>
+            <ol>
+                <li>Nahrajte tento repozitář na GitHub (pokud jste tak ještě neučinili)</li>
+                <li>Jděte na <a href="https://github.com" target="_blank">github.com</a> a přihlaste se</li>
+                <li>Otevřete váš repozitář <code>Vanoce-2025-Darek</code></li>
+                <li>Klikněte na <strong>Settings</strong> (nastavení)</li>
+                <li>V levém menu najděte <strong>Pages</strong></li>
+                <li>V sekci "Source" vyberte <strong>Deploy from a branch</strong></li>
+                <li>Vyberte větev <strong>main</strong> (nebo master) a složku <strong>/ (root)</strong></li>
+                <li>Klikněte na <strong>Save</strong></li>
+                <li>Počkejte 1-2 minuty, stránka bude dostupná na URL výše</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // Simple QR Code generator using Google Charts API (works offline-friendly with fallback)
+        function generateQR() {
+            const username = document.getElementById('username').value.trim();
+            const repo = document.getElementById('repo').value.trim();
+            
+            if (!username) {
+                alert('Prosím zadejte své GitHub uživatelské jméno');
+                return;
+            }
+            
+            const url = `https://${username}.github.io/${repo}/`;
+            
+            // Clear previous QR
+            const qrDiv = document.getElementById('qrcode');
+            qrDiv.innerHTML = '';
+            
+            // Create QR code using Google Charts API
+            const qrImg = document.createElement('img');
+            const encodedUrl = encodeURIComponent(url);
+            qrImg.src = `https://chart.googleapis.com/chart?cht=qr&chs=256x256&chl=${encodedUrl}&choe=UTF-8`;
+            qrImg.alt = 'QR kód pro ' + url;
+            qrImg.style.width = '256px';
+            qrImg.style.height = '256px';
+            
+            // Handle loading error
+            qrImg.onerror = function() {
+                qrDiv.innerHTML = `
+                    <div style="padding: 2rem; color: #ff6b6b;">
+                        <p>QR kód nelze vygenerovat offline.</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem;">
+                            Použijte online generátor: 
+                            <a href="https://www.qr-code-generator.com/" target="_blank" style="color: #FEBE10;">
+                                qr-code-generator.com
+                            </a>
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            URL k zakódování: <code style="display: block; margin-top: 0.5rem; word-break: break-all;">${url}</code>
+                        </p>
+                    </div>
+                `;
+            };
+            
+            qrDiv.appendChild(qrImg);
+            document.getElementById('url-display').textContent = url;
+            document.getElementById('qr-container').classList.add('visible');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEBE10"/>
+      <stop offset="50%" style="stop-color:#f5d742"/>
+      <stop offset="100%" style="stop-color:#FEBE10"/>
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a6e"/>
+      <stop offset="100%" style="stop-color:#00529F"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shield background -->
+  <path d="M100 10 
+           C140 10, 175 25, 185 45 
+           L185 110 
+           C185 140, 160 170, 100 190 
+           C40 170, 15 140, 15 110 
+           L15 45 
+           C25 25, 60 10, 100 10 Z" 
+        fill="url(#blueGradient)" 
+        stroke="url(#goldGradient)" 
+        stroke-width="4"/>
+  
+  <!-- Inner shield -->
+  <path d="M100 25 
+           C130 25, 160 37, 170 52 
+           L170 108 
+           C170 132, 150 158, 100 175 
+           C50 158, 30 132, 30 108 
+           L30 52 
+           C40 37, 70 25, 100 25 Z" 
+        fill="none" 
+        stroke="url(#goldGradient)" 
+        stroke-width="2"/>
+  
+  <!-- Crown -->
+  <g filter="url(#glow)">
+    <path d="M60 50 L65 35 L75 48 L85 30 L100 50 L115 30 L125 48 L135 35 L140 50" 
+          fill="none" 
+          stroke="url(#goldGradient)" 
+          stroke-width="3" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    <!-- Crown base -->
+    <rect x="60" y="50" width="80" height="8" rx="2" fill="url(#goldGradient)"/>
+    <!-- Crown jewels -->
+    <circle cx="100" cy="38" r="4" fill="#FEBE10"/>
+    <circle cx="75" cy="45" r="3" fill="#FEBE10"/>
+    <circle cx="125" cy="45" r="3" fill="#FEBE10"/>
+  </g>
+  
+  <!-- Letters M C F -->
+  <text x="100" y="95" 
+        text-anchor="middle" 
+        font-family="serif" 
+        font-size="32" 
+        font-weight="bold" 
+        fill="url(#goldGradient)"
+        filter="url(#glow)">MCF</text>
+  
+  <!-- Decorative line -->
+  <line x1="55" y1="105" x2="145" y2="105" 
+        stroke="url(#goldGradient)" 
+        stroke-width="2"/>
+  
+  <!-- Real Madrid text -->
+  <text x="100" y="130" 
+        text-anchor="middle" 
+        font-family="serif" 
+        font-size="16" 
+        font-weight="bold" 
+        fill="url(#goldGradient)">REAL</text>
+  <text x="100" y="150" 
+        text-anchor="middle" 
+        font-family="serif" 
+        font-size="16" 
+        font-weight="bold" 
+        fill="url(#goldGradient)">MADRID</text>
+  
+  <!-- Decorative stars -->
+  <g fill="url(#goldGradient)" filter="url(#glow)">
+    <polygon points="100,160 102,166 108,166 103,170 105,176 100,172 95,176 97,170 92,166 98,166"/>
+  </g>
+</svg>
+

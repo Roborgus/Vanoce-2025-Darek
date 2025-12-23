@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vánoční dárek 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fáze 1: Tajemné intro -->
+    <section id="intro" class="phase active">
+        <div class="particles" id="particles"></div>
+        <div class="intro-content">
+            <div class="mystery-icon">🎄</div>
+            <h1 class="mystery-title">
+                <span class="name">Theodor</span> & <span class="name">Kryštof</span>
+            </h1>
+            <p class="mystery-subtitle">Připravte se na něco velkého...</p>
+            <button id="reveal-btn" class="reveal-button">
+                <span class="btn-text">Odhalit vánoční dárek</span>
+                <span class="btn-glow"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Fáze 2: Dramatické odhalení -->
+    <section id="reveal" class="phase">
+        <div class="confetti-container" id="confetti"></div>
+        <div class="reveal-content">
+            <div class="logo-container">
+                <img src="assets/real-madrid-logo.svg" alt="Real Madrid" class="rm-logo" id="rm-logo">
+            </div>
+            <h1 class="reveal-title" id="reveal-title">JEDEME NA REAL MADRID!</h1>
+            <p class="reveal-subtitle">Estadio Santiago Bernabéu</p>
+        </div>
+    </section>
+
+    <!-- Fáze 3: Hlavní obsah -->
+    <section id="main" class="phase">
+        <div class="stadium-bg"></div>
+        <div class="main-overlay"></div>
+        
+        <div class="main-content">
+            <!-- Header s logem -->
+            <header class="main-header">
+                <img src="assets/real-madrid-logo.svg" alt="Real Madrid" class="header-logo">
+                <h2 class="header-title">Výlet na Real Madrid</h2>
+            </header>
+
+            <!-- Odpočítávání -->
+            <div class="countdown-section">
+                <h3 class="countdown-label">Do zápasu zbývá</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">000</span>
+                        <span class="countdown-unit">dní</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-unit">hodin</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-unit">minut</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-unit">sekund</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info karta zápasu -->
+            <div class="match-card">
+                <div class="match-header">
+                    <span class="match-league">La Liga 2025/26</span>
+                    <span class="match-date">12. dubna 2026</span>
+                </div>
+                <div class="match-teams">
+                    <div class="team home">
+                        <img src="assets/real-madrid-logo.svg" alt="Real Madrid" class="team-logo">
+                        <span class="team-name">Real Madrid</span>
+                    </div>
+                    <div class="match-vs">VS</div>
+                    <div class="team away">
+                        <img src="assets/girona-logo.svg" alt="Girona FC" class="team-logo">
+                        <span class="team-name">Girona FC</span>
+                    </div>
+                </div>
+                <div class="match-venue">
+                    <span class="venue-icon">🏟️</span>
+                    <span class="venue-name">Estadio Santiago Bernabéu, Madrid</span>
+                </div>
+            </div>
+
+            <!-- Timeline výletu -->
+            <div class="timeline-section">
+                <h3 class="section-title">Program výletu</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">9. dubna</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">✈️</div>
+                            <h4>Odlet do Barcelony</h4>
+                            <p>Praha → Barcelona</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">10.–11. dubna</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">🏠</div>
+                            <h4>Barcelona</h4>
+                            <p>Ubytování u tety a strýce</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-date">12. dubna</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">⚽</div>
+                            <h4>ZÁPAS!</h4>
+                            <p>Vlak do Madridu → Real Madrid vs Girona</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">13. dubna</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">🏡</div>
+                            <h4>Návrat domů</h4>
+                            <p>Barcelona → Praha</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Účastníci -->
+            <div class="participants-section">
+                <h3 class="section-title">Kdo jede?</h3>
+                <div class="participants-grid">
+                    <div class="participant-group">
+                        <h4 class="group-title">🇨🇿 Z Prahy</h4>
+                        <div class="participant">
+                            <span class="participant-name">Theodor</span>
+                            <span class="participant-age">13 let</span>
+                        </div>
+                        <div class="participant">
+                            <span class="participant-name">Kryštof</span>
+                            <span class="participant-age">20 let</span>
+                        </div>
+                        <div class="participant">
+                            <span class="participant-name">Táta</span>
+                        </div>
+                    </div>
+                    <div class="participant-group">
+                        <h4 class="group-title">🇪🇸 Z Barcelony</h4>
+                        <div class="participant">
+                            <span class="participant-name">David</span>
+                        </div>
+                        <div class="participant">
+                            <span class="participant-name">Lukáš</span>
+                        </div>
+                        <div class="participant">
+                            <span class="participant-name">Strýc</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <p>Veselé Vánoce 2025! 🎄</p>
+                <p class="footer-subtitle">¡Hala Madrid!</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Audio element pro zvuk fanoušků (volitelné - přidejte vlastní MP3 soubor) -->
+    <!-- Pro přidání zvuku: uložte soubor jako assets/crowd-cheer.mp3 -->
+    <audio id="crowd-sound" preload="auto">
+        <source src="assets/crowd-cheer.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
