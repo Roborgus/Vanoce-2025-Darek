@@ -9,12 +9,11 @@ const CONFIG = {
     matchDate: new Date('2026-04-12T21:00:00'),
     
     // Animation timings (ms)
-    revealDelay: 1500,        // Longer delay before reveal starts (builds anticipation)
-    confettiDuration: 6000,
-    phaseTransitionDelay: 6000, // Longer reveal phase (6 seconds to enjoy the moment)
+    revealDelay: 2000,        // 2 second delay before reveal starts (builds anticipation)
+    confettiDuration: 8000,
     
     // Confetti settings
-    confettiCount: 200,       // More confetti for dramatic effect
+    confettiCount: 250,       // More confetti for dramatic effect
     confettiColors: ['#FFFFFF', '#FEBE10', '#00529F', '#f5d742', '#FFD700']
 };
 
@@ -44,11 +43,10 @@ const elements = {
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initRevealButton();
+    initContinueButton();
     
-    // Check if user has already seen the reveal (optional persistence)
-    if (localStorage.getItem('rm-gift-revealed') === 'true') {
-        skipToMain();
-    }
+    // Always start from intro - user must click to reveal
+    // No auto-skip based on localStorage
 });
 
 // ==========================================
@@ -81,20 +79,43 @@ function startReveal() {
     elements.revealBtn.disabled = true;
     elements.revealBtn.style.pointerEvents = 'none';
     
-    // Transition to reveal phase
+    // Add button press animation
+    elements.revealBtn.style.transform = 'scale(0.9)';
+    elements.revealBtn.textContent = '✨ Načítám... ✨';
+    
+    // Transition to reveal phase after suspenseful delay
     setTimeout(() => {
         switchPhase('reveal');
         triggerRevealAnimations();
         createConfetti();
         playSound();
         
-        // After reveal animation, transition to main
+        // Show continue button after logo animation completes
         setTimeout(() => {
+            showContinueButton();
+        }, 2500);
+        
+        // NO auto-transition - user must click continue button
+    }, CONFIG.revealDelay);
+}
+
+function initContinueButton() {
+    const continueBtn = document.getElementById('continue-btn');
+    if (continueBtn) {
+        continueBtn.addEventListener('click', () => {
             switchPhase('main');
             startCountdown();
-            localStorage.setItem('rm-gift-revealed', 'true');
-        }, CONFIG.phaseTransitionDelay);
-    }, CONFIG.revealDelay);
+        });
+    }
+}
+
+function showContinueButton() {
+    const continueBtn = document.getElementById('continue-btn');
+    if (continueBtn) {
+        continueBtn.style.opacity = '1';
+        continueBtn.style.transform = 'translateY(0)';
+        continueBtn.style.pointerEvents = 'auto';
+    }
 }
 
 function switchPhase(phase) {
