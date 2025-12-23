@@ -1,37 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260">
   <defs>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="rm-gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#FEBE10"/>
-      <stop offset="100%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#D4A017"/>
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.3"/>
-    </filter>
   </defs>
+  <!-- Main Circles -->
+  <circle cx="100" cy="160" r="75" fill="#FFFFFF" stroke="#00529F" stroke-width="8"/>
+  <circle cx="100" cy="160" r="66" fill="none" stroke="url(#rm-gold)" stroke-width="5"/>
   
-  <!-- Outer circle -->
-  <circle cx="100" cy="110" r="75" fill="#FFFFFF" stroke="#00529F" stroke-width="8"/>
-  <circle cx="100" cy="110" r="67" fill="none" stroke="url(#gold)" stroke-width="4"/>
+  <!-- Blue Diagonal Band -->
+  <path d="M50 110 L150 210 L165 195 L65 95 Z" fill="#00529F" clip-path="circle(66px at 100px 160px)"/>
   
-  <!-- Purple diagonal band -->
-  <path d="M50 60 L150 160 L160 150 L60 50 Z" fill="#6B2E92"/>
-  
-  <!-- Crown -->
-  <g transform="translate(100, 35) scale(0.6)" filter="url(#shadow)">
-    <path d="M-80 40 L-90 0 L-40 30 L0 -20 L40 30 L90 0 L80 40 Z" fill="url(#gold)"/>
-    <rect x="-80" y="40" width="160" height="15" rx="5" fill="url(#gold)"/>
-    <circle cx="0" cy="-35" r="10" fill="url(#gold)"/>
-    <path d="M-10 -35 L10 -35 M0 -45 L0 -25" stroke="#00529F" stroke-width="4"/>
-    <!-- Jewels -->
-    <circle cx="-40" cy="47" r="4" fill="#E30613"/>
-    <circle cx="0" cy="47" r="4" fill="#00529F"/>
-    <circle cx="40" cy="47" r="4" fill="#E30613"/>
+  <!-- MCF Letters -->
+  <g transform="translate(100, 165)" fill="url(#rm-gold)" stroke="#00529F" stroke-width="1.5" font-family="Arial, sans-serif" font-weight="900" text-anchor="middle">
+    <!-- M -->
+    <path d="M-45 15 L-45 -35 L-25 -35 L0 -10 L25 -35 L45 -35 L45 15 L30 15 L30 -15 L5 10 L-5 10 L-30 -15 L-30 15 Z" />
+    <!-- C (overlays M) -->
+    <path d="M-10 -25 A 30 30 0 1 0 -10 25 L-10 10 A 15 15 0 1 1 -10 -10 Z" transform="scale(1.2) translate(5, -2)"/>
+    <!-- F (overlays others) -->
+    <path d="M-10 -15 L25 -15 L25 -5 L5 -5 L5 5 L20 5 L20 15 L5 15 L5 35 L-10 35 Z" transform="translate(5, 5)"/>
   </g>
-  
-  <!-- MCF Monogram -->
-  <g transform="translate(100, 115) scale(1.1)" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle">
-    <text x="0" y="0" font-size="60" fill="url(#gold)" stroke="#00529F" stroke-width="1.5">M</text>
-    <text x="0" y="20" font-size="40" fill="url(#gold)" stroke="#00529F" stroke-width="1">C</text>
-    <text x="0" y="40" font-size="40" fill="url(#gold)" stroke="#00529F" stroke-width="1">F</text>
+
+  <!-- Crown -->
+  <g transform="translate(100, 45) scale(0.8)">
+    <path d="M-80 40 L-90 0 L-40 30 L0 -20 L40 30 L90 0 L80 40 Z" fill="url(#rm-gold)" stroke="#00529F" stroke-width="2"/>
+    <rect x="-80" y="40" width="160" height="15" rx="5" fill="url(#rm-gold)" stroke="#00529F" stroke-width="2"/>
+    <!-- Crown Jewels -->
+    <circle cx="0" cy="-35" r="10" fill="url(#rm-gold)" stroke="#00529F" stroke-width="2"/>
+    <path d="M-10 -35 L10 -35 M0 -45 L0 -25" stroke="#00529F" stroke-width="3"/>
+    <circle cx="-40" cy="47" r="5" fill="#E30613"/>
+    <circle cx="0" cy="47" r="5" fill="#00529F"/>
+    <circle cx="40" cy="47" r="5" fill="#E30613"/>
+    <path d="M-60 25 Q-40 10 -20 25 M20 25 Q40 10 60 25" fill="none" stroke="#E30613" stroke-width="2"/>
   </g>
 </svg>
