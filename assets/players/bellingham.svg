@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00529F"/>
+      <stop offset="100%" style="stop-color:#003366"/>
+    </linearGradient>
+    <linearGradient id="skin3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8d5524"/>
+      <stop offset="100%" style="stop-color:#6b4423"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="250" fill="url(#bg3)"/>
+  
+  <!-- Jersey/Body -->
+  <ellipse cx="100" cy="280" rx="90" ry="100" fill="#FFFFFF"/>
+  <path d="M50 180 Q100 160 150 180 L160 250 L40 250 Z" fill="#FFFFFF"/>
+  
+  <!-- Black/Gold stripes on adidas jersey -->
+  <path d="M50 180 Q100 170 150 180" stroke="#1a1a1a" stroke-width="4" fill="none"/>
+  <path d="M55 185 L45 250" stroke="#1a1a1a" stroke-width="3"/>
+  <path d="M145 185 L155 250" stroke="#1a1a1a" stroke-width="3"/>
+  
+  <!-- Number 5 -->
+  <text x="100" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="40" fill="#00529F">5</text>
+  
+  <!-- Neck -->
+  <ellipse cx="100" cy="145" rx="20" ry="15" fill="url(#skin3)"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="100" rx="45" ry="55" fill="url(#skin3)"/>
+  
+  <!-- Curly Hair (taller) -->
+  <ellipse cx="100" cy="50" rx="48" ry="40" fill="#1a1a1a"/>
+  <circle cx="65" cy="35" r="15" fill="#1a1a1a"/>
+  <circle cx="85" cy="28" r="15" fill="#1a1a1a"/>
+  <circle cx="115" cy="28" r="15" fill="#1a1a1a"/>
+  <circle cx="135" cy="35" r="15" fill="#1a1a1a"/>
+  <circle cx="55" cy="55" r="12" fill="#1a1a1a"/>
+  <circle cx="145" cy="55" r="12" fill="#1a1a1a"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="80" cy="95" rx="8" ry="5" fill="#1a1a1a"/>
+  <ellipse cx="120" cy="95" rx="8" ry="5" fill="#1a1a1a"/>
+  
+  <!-- Eyebrows (thicker) -->
+  <path d="M68 83 Q80 78 92 83" stroke="#1a1a1a" stroke-width="3" fill="none"/>
+  <path d="M108 83 Q120 78 132 83" stroke="#1a1a1a" stroke-width="3" fill="none"/>
+  
+  <!-- Nose -->
+  <path d="M100 95 L100 112 L93 118" stroke="#6b4423" stroke-width="2" fill="none"/>
+  
+  <!-- Slight stubble/beard -->
+  <path d="M70 130 Q100 145 130 130" stroke="#3d3d3d" stroke-width="1" fill="none" opacity="0.3"/>
+  
+  <!-- Mouth -->
+  <path d="M85 128 Q100 132 115 128" stroke="#4a3728" stroke-width="2" fill="none"/>
+  
+  <!-- Ears -->
+  <ellipse cx="55" cy="100" rx="8" ry="12" fill="url(#skin3)"/>
+  <ellipse cx="145" cy="100" rx="8" ry="12" fill="url(#skin3)"/>
+  
+  <!-- Name -->
+  <text x="100" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#D4AF37">BELLINGHAM</text>
+</svg>
+

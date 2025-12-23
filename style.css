@@ -21,15 +21,39 @@
     --font-main: 'Montserrat', sans-serif;
 }
 
-/* Base Adjustments */
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: var(--rm-black);
+    font-family: var(--font-main);
+    background: var(--rm-black);
+    color: var(--rm-white);
+    overflow-x: hidden;
+    line-height: 1.6;
     letter-spacing: -0.01em;
+}
+
+/* Ensure all text is white by default */
+h1, h2, h3, h4, h5, h6, p, span, div, li {
+    color: inherit;
 }
 
 h1, h2, h3, h4 {
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    color: var(--rm-white);
+}
+
+p {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Star Players Section */
@@ -748,11 +772,12 @@ h1, h2, h3, h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
+    color: var(--rm-white);
 }
 
 .timeline-content p {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Participants Section */
@@ -803,6 +828,7 @@ h1, h2, h3, h4 {
 
 .participant-name {
     font-weight: 500;
+    color: var(--rm-white);
 }
 
 .participant-age {

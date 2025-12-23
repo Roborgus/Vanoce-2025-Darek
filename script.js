@@ -42,37 +42,9 @@ const elements = {
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // #region agent log
-    fetch('http://127.0.0.1:7245/ingest/6152cf98-ecb0-4326-8b5d-e3fc2e8c61c9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:init',message:'DOM Content Loaded',data:{revealed:localStorage.getItem('rm-gift-revealed')},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    
-    // Check if stars overlap button
-    const btn = document.getElementById('reveal-btn');
-    if (btn) {
-        const rect = btn.getBoundingClientRect();
-        const elAtPoint = document.elementFromPoint(rect.left + rect.width/2, rect.top + rect.height/2);
-        // #region agent log
-        fetch('http://127.0.0.1:7245/ingest/6152cf98-ecb0-4326-8b5d-e3fc2e8c61c9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:overlap-check',message:'Overlap check',data:{buttonId:btn.id, elementAtCenter: elAtPoint ? elAtPoint.tagName + '.' + elAtPoint.className : 'none'},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
-    }
-
     initParticles();
     initRevealButton();
     
-    // Track player images
-    document.querySelectorAll('.player-img, .intro-star').forEach(img => {
-        img.addEventListener('load', () => {
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/6152cf98-ecb0-4326-8b5d-e3fc2e8c61c9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:img-load',message:'Image loaded',data:{src:img.src, alt:img.alt},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A'})}).catch(()=>{});
-            // #endregion
-        });
-        img.addEventListener('error', () => {
-            // #region agent log
-            fetch('http://127.0.0.1:7245/ingest/6152cf98-ecb0-4326-8b5d-e3fc2e8c61c9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'script.js:img-error',message:'Image failed to load',data:{src:img.src, alt:img.alt},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A'})}).catch(()=>{});
-            // #endregion
-        });
-    });
-
     // Check if user has already seen the reveal (optional persistence)
     if (localStorage.getItem('rm-gift-revealed') === 'true') {
         skipToMain();
